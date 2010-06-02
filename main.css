@@ -55,7 +55,7 @@ a, a:visited, a:active {
 }
 
 .menu ul li a:hover {
-    background-color: #CC0000;
+    background-color: #840000;
     backgroind-color: #08c;
     color: #ffffff;
 }
@@ -84,7 +84,8 @@ background-color: #FFFFFF;
 }
 
 .content .rightbox .box {
-    background-color: #FFFF99;
+    border: 1px solid #999999;
+    background-color: #FFFFCC;
     padding: 10px;
     white-space: wrap;
     width: 160px;
