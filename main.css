@@ -72,8 +72,6 @@ background-color: #FFFFFF;
     float: right;
 }
 
-
-
 .content .leftbox {
     float: left;
     width: 500px;
@@ -96,6 +94,14 @@ background-color: #FFFFFF;
     padding: 10px;
     white-space: wrap;
     width: 400px;
+}
+
+.content h1 {
+    color: #840000;
+}
+
+.content h2 {
+    color: #404040;
 }
 
 #footer {
