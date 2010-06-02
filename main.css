@@ -1,0 +1,109 @@
+body {
+    background-color: #F0F0F0;
+    margin: 20px 20px 0px 20px ; 
+    height:100%; 
+}
+
+a, a:visited, a:active {
+    color: #0000FF;
+}
+#mainframe {
+	width: 800px;
+	border: 1px solid #B8B8B8;
+	float: left;
+	background-color: #FFFFFF;
+	position: relative;
+	left: 50%;
+	margin-left: -400px;
+	padding: 10px;
+	min-height:100%; 
+}
+
+.logo {
+	width: 750px;
+	font-family: Verdana;
+	font-size: 25px;
+	margin-left: 25px;
+}
+
+.menu {
+	margin-left: 25px;
+	float: left;
+}
+
+
+.menu ul {
+	padding: 0px;
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	white-space: nowrap;
+	list-style-type: none;
+}
+
+.menu ul li {
+    display: inline;
+}
+
+.menu ul li a, .menu ul li a:visited, .menu ul li a:active {
+	padding: 5px;
+	border: 0px;
+	text-decoration: none;
+	margin-right: 15px;
+	float: left;
+	color: #404040;
+	font-weight: bold;
+}
+
+.menu ul li a:hover {
+	background-color: #CC0000;
+	backgroind-color: #08c;
+	color: #ffffff;
+}
+
+
+.content {
+background-color: #FFFFFF;
+    width: 750px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 10px;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 14px;
+    float: right;
+}
+
+
+
+.content .leftbox {
+    float: left;
+    width: 500px;
+}
+.content .rightbox {
+    float: right;
+    width: 200px;
+}
+
+.content .rightbox .box {
+    background-color: #FFFF99;
+    padding: 10px;
+    white-space: wrap;
+    width: 160px;
+}
+
+.content .leftbox .box {
+    background-color: #FFFF99;
+    padding: 10px;
+    white-space: wrap;
+    width: 400px;
+}
+
+#footer {
+    width: 750px;
+    float: left;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 14px;
+    color: #0F0F0F;
+}
