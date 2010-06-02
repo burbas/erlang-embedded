@@ -1,0 +1,37 @@
+!!! XML
+!!!
+
+%html
+
+  #mainframe
+
+    = `haml header.haml`
+
+    = `haml menu.haml`
+
+    .content
+      :markdown
+        # Getting started
+
+        ## Requirements:
+        * A card reader capable of reading/writing SD cards.
+
+        ## Installing:
+        1. Download the latest packaged release from the [downloads
+        page](downloads.html) and extract it.
+        1. Insert an SD card in your card reader.
+        1. Run `$INSTALLSCRIPT /dev/<cardreader>`.
+
+        ## Running:
+        1. Insert the SD card in the reader of the Beagle Board or Gumstix.
+        1. Connect the USB OTG port of the Beagle Board or Gumstix to a USB
+        port on your PC to power it up.
+        1. When it has booted, you can log in to it via `ssh` to 198.168.0.201.
+
+        # Suggested next steps:
+        * Install [`sshfs`](http://fuse.sourceforge.net/sshfs.html) so you
+        can mount the file system of the embedded device over `ssh` to easier
+        do the development on your PC.
+        * Write the greatest Erlang application for an embedded system ever.
+
+    = `haml footer.haml`

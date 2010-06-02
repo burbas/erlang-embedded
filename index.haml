@@ -1,0 +1,34 @@
+!!! XML
+!!!
+
+%html
+
+  #mainframe
+
+    = `haml header.haml`
+
+    = `haml menu.haml`
+
+    .content
+      .leftbox
+        :markdown
+          # Home
+
+          Erlang-embedded is a platform for developing embedded Erlang
+          applications. The project started as a collection of thesis
+          projects at Uppsala University, under the supervision of
+          [Erlang Solutions](http://www.erlang-solutions.com).
+
+          Our goal is to provide developers with an operating system
+          distribution and an Erlang release, ready to be installed on
+          an embedded device to reduce the time needed to setup a
+          development environment.
+
+          The easiest way to get started is to visit the
+          [getting started](start.html) page.
+
+      .rightbox
+        %p
+          Testing right column
+
+    = `haml footer.haml`
