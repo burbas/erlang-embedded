@@ -1,0 +1,24 @@
+!!! XML
+!!!
+
+%html
+
+  #mainframe
+
+    = `haml header.haml`
+
+    = `haml menu.haml`
+
+    .content
+      :markdown
+        # Supported hardware
+
+        The hardware platforms we support are:
+        * [Beagle Board](http://beagleboard.org)
+        * [Gumstix](http://www.gumstix.org)
+
+        These are the platforms we test our releases on, but we are working on
+        supporting more platforms. It probably works on other OMAP35x-based
+        platforms, but we have none available.
+
+    = `haml footer.haml`

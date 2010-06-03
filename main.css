@@ -22,7 +22,7 @@ a, a:visited, a:active {
 .logo {
     width: 750px;
     font-family: Verdana;
-    font-size: 25px;
+    font-size: 32px;
     margin-left: 25px;
 }
 
@@ -108,6 +108,14 @@ img.right {
     padding: 10px;
     white-space: wrap;
     width: 400px;
+}
+
+.content h1 {
+    color: #840000;
+}
+
+.content h2 {
+    color: #404040;
 }
 
 #footer {

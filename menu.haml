@@ -1,7 +1,8 @@
 .menu
-  %ul
-    - items = [["index.html","Home"], ["start.html","Getting started"], ["news.html","News"]]
-    - items += [["contact.html","Contact"], ["downloads.html","Downloads"]]
-    - items.each do |item|
-      %li
-        %a{:href => item[0]}= item[1]
+  :markdown
+    * [Home](index.html)
+    * [Getting started](start.html)
+    * [News](news.html)
+    * [Contact](contact.html)
+    * [Downloads](downloads.html)
+    * [Supported hardware](hardware.html)
