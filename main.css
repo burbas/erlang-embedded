@@ -72,7 +72,19 @@ background-color: #FFFFFF;
     float: right;
 }
 
+img.right {
+    float: right;
+    margin-bottom: 10px;
+}
 
+.newsbox {
+    background-color: #CCCCCC;
+    padding: 10px;
+    white-space: wrap;
+    margin-bottom: 20px;
+    float: left;
+    width: 700px;
+}
 
 .content .leftbox {
     float: left;
