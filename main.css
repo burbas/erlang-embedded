@@ -78,7 +78,8 @@ img.right {
 }
 
 .newsbox {
-    background-color: #CCCCCC;
+    background-color: #EEEEEE;
+    border: 1px solid #C2C2C2;
     padding: 10px;
     white-space: wrap;
     margin-bottom: 20px;
