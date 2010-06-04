@@ -1,24 +1,26 @@
 !!! XML
 !!!
 
-%html
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      Embedded Erlang &mdash; Supported hardware
+    = `haml head.haml`
+  %body
+    #mainframe
+      = `haml header.haml`
+      = `haml menu.haml`
 
-  #mainframe
+      .content
+        :markdown
+          # Supported hardware
 
-    = `haml header.haml`
+          The hardware platforms we support are:
+          * [Beagle Board](http://beagleboard.org)
+          * [Gumstix](http://www.gumstix.org)
 
-    = `haml menu.haml`
+          These are the platforms we test our releases on, but we are working on
+          supporting more platforms. It probably works on other OMAP35x-based
+          platforms, but we have none available.
 
-    .content
-      :markdown
-        # Supported hardware
-
-        The hardware platforms we support are:
-        * [Beagle Board](http://beagleboard.org)
-        * [Gumstix](http://www.gumstix.org)
-
-        These are the platforms we test our releases on, but we are working on
-        supporting more platforms. It probably works on other OMAP35x-based
-        platforms, but we have none available.
-
-    = `haml footer.haml`
+      = `haml footer.haml`

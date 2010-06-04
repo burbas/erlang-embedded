@@ -1,39 +1,41 @@
 !!! XML
 !!!
 
-%html
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      Embedded Erlang &mdash; Getting started
+    = `haml head.haml`
+  %body
+    #mainframe
+      = `haml header.haml`
+      = `haml menu.haml`
 
-  #mainframe
+      .content
+        :markdown
+          # Getting started
 
-    = `haml header.haml`
+          ## Requirements:
+          * A card reader capable of reading/writing SD cards.
 
-    = `haml menu.haml`
+          ## Installing:
+          1. Download the latest packaged release from the [downloads
+          page](downloads.html) and extract it.
+          1. Insert an SD card in your card reader.
+          1. Run `$INSTALLSCRIPT /dev/<cardreader>`.
 
-    .content
-      :markdown
-        # Getting started
+          ## Running:
+          1. Insert the SD card in the Beagle Board or Gumstix (the device).
+          1. Connect your PC to the serial port on your device and open it with
+          your terminal program of choice.
+          1. Power your device on, either via USB or a power adapter.
+          1. You will get console output on the serial port and eventually be
+          logged in.
 
-        ## Requirements:
-        * A card reader capable of reading/writing SD cards.
+          # Suggested next steps:
+          * Install [`sshfs`](http://fuse.sourceforge.net/sshfs.html) so you
+          can mount the file system of the embedded device over `ssh` to easier
+          do the development on your PC.
+          * Write the greatest Erlang application for an embedded system ever.
 
-        ## Installing:
-        1. Download the latest packaged release from the [downloads
-        page](downloads.html) and extract it.
-        1. Insert an SD card in your card reader.
-        1. Run `$INSTALLSCRIPT /dev/<cardreader>`.
-
-        ## Running:
-        1. Insert the SD card in the Beagle Board or Gumstix (the device).
-        1. Connect your PC to the serial port on your device and open it with
-        your terminal program of choice.
-        1. Power your device on, either via USB or a power adapter.
-        1. You will get console output on the serial port and eventually be
-        logged in.
-
-        # Suggested next steps:
-        * Install [`sshfs`](http://fuse.sourceforge.net/sshfs.html) so you
-        can mount the file system of the embedded device over `ssh` to easier
-        do the development on your PC.
-        * Write the greatest Erlang application for an embedded system ever.
-
-    = `haml footer.haml`
+      = `haml footer.haml`

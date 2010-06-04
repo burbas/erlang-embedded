@@ -1,76 +1,80 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <div id='mainframe'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>
+      Embedded Erlang &mdash; Getting started
+    </title>
     <link href='main.css' rel='stylesheet' type='text/css' />
-    <div class='logo'>
-      Embedded Erlang
-    </div>
-    <div class='menu'>
-      <ul>
-      <li><a href='index.html'>Home</a></li>
-      
-      <li><a href='start.html'>Getting started</a></li>
-      
-      <li><a href='news.html'>News</a></li>
-      
-      <li><a href='contact.html'>Contact</a></li>
-      
-      <li><a href='downloads.html'>Downloads</a></li>
-      
-      <li><a href='hardware.html'>Supported hardware</a></li>
-      </ul>
-    </div>
-    <div class='content'>
-      <h1 id='getting_started'>Getting started</h1>
-      
-      <h2 id='requirements'>Requirements:</h2>
-      
-      <ul>
-      <li>A card reader capable of reading/writing SD cards.</li>
-      </ul>
-      
-      <h2 id='installing'>Installing:</h2>
-      
-      <ol>
-      <li>Download the latest packaged release from the <a href='downloads.html'>downloads page</a> and extract it.</li>
-      
-      <li>Insert an SD card in your card reader.</li>
-      
-      <li>Run <code>$INSTALLSCRIPT /dev/&lt;cardreader&gt;</code>.</li>
-      </ol>
-      
-      <h2 id='running'>Running:</h2>
-      
-      <ol>
-      <li>Insert the SD card in the Beagle Board or Gumstix (the device).</li>
-      
-      <li>Connect your PC to the serial port on your device and open it with your terminal program of choice.</li>
-      
-      <li>Power your device on, either via USB or a power adapter.</li>
-      
-      <li>You will get console output on the serial port and eventually be logged in.</li>
-      </ol>
-      
-      <h1 id='suggested_next_steps'>Suggested next steps:</h1>
-      
-      <ul>
-      <li>Install <a href='http://fuse.sourceforge.net/sshfs.html'><code>sshfs</code></a> so you can mount the file system of the embedded device over <code>ssh</code> to easier do the development on your PC.</li>
-      
-      <li>Write the greatest Erlang application for an embedded system ever.</li>
-      </ul>
-    </div>
-    <div id='footer'>
-      <div id='box'>
-        <div id='copyright'>
-          &copy; 2010,
-          <a href='http://www.erlang-solutions.com'>Erlang Solutions.</a>
+  </head>
+  <body>
+    <div id='mainframe'>
+      <div class='logo'>
+        Embedded Erlang
+      </div>
+      <div class='menu'>
+        <ul>
+        <li><a href='index.html'>Home</a></li>
+        
+        <li><a href='start.html'>Getting started</a></li>
+        
+        <li><a href='news.html'>News</a></li>
+        
+        <li><a href='contact.html'>Contact</a></li>
+        
+        <li><a href='downloads.html'>Downloads</a></li>
+        
+        <li><a href='hardware.html'>Supported hardware</a></li>
+        </ul>
+      </div>
+      <div class='content'>
+        <h1 id='getting_started'>Getting started</h1>
+        
+        <h2 id='requirements'>Requirements:</h2>
+        
+        <ul>
+        <li>A card reader capable of reading/writing SD cards.</li>
+        </ul>
+        
+        <h2 id='installing'>Installing:</h2>
+        
+        <ol>
+        <li>Download the latest packaged release from the <a href='downloads.html'>downloads page</a> and extract it.</li>
+        
+        <li>Insert an SD card in your card reader.</li>
+        
+        <li>Run <code>$INSTALLSCRIPT /dev/&lt;cardreader&gt;</code>.</li>
+        </ol>
+        
+        <h2 id='running'>Running:</h2>
+        
+        <ol>
+        <li>Insert the SD card in the Beagle Board or Gumstix (the device).</li>
+        
+        <li>Connect your PC to the serial port on your device and open it with your terminal program of choice.</li>
+        
+        <li>Power your device on, either via USB or a power adapter.</li>
+        
+        <li>You will get console output on the serial port and eventually be logged in.</li>
+        </ol>
+        
+        <h1 id='suggested_next_steps'>Suggested next steps:</h1>
+        
+        <ul>
+        <li>Install <a href='http://fuse.sourceforge.net/sshfs.html'><code>sshfs</code></a> so you can mount the file system of the embedded device over <code>ssh</code> to easier do the development on your PC.</li>
+        
+        <li>Write the greatest Erlang application for an embedded system ever.</li>
+        </ul>
+      </div>
+      <div id='footer'>
+        <div class='copyright'>
+          <p>© 2010, <a href='http://www.erlang-solutions.com'>Erlang Solutions</a>.</p>
+        </div>
+        <div id='updated'>
+          Last updated:
+          Fri Jun 04 09:31:20 UTC 2010
         </div>
       </div>
-      <div id='updated'>
-        Updated:
-        Thu Jun 03 08:08:14 UTC 2010
-      </div>
     </div>
-  </div>
+  </body>
 </html>

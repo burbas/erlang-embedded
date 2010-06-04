@@ -1,23 +1,25 @@
 !!! XML
 !!!
 
-%html
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      Embedded Erlang &mdash; News
+    = `haml head.haml`
+  %body
+    #mainframe
+      = `haml header.haml`
+      = `haml menu.haml`
 
-  #mainframe
+      .content
+        %h1 News
 
-    = `haml header.haml`
+        - Dir["news/*.haml"].reverse.each do |file|
+          - file =~ /.*\/(.*).haml/
+          - date = $1
+          - if Date.parse(date) <= Date.today
+            .newsbox
+              %h2= date
+              = `haml #{file}`
 
-    = `haml menu.haml`
-
-    .content
-      %h1 News
-
-      - Dir["news/*.haml"].reverse.each do |file|
-        - file =~ /.*\/(.*).haml/
-        - date = $1
-        - if Date.parse(date) <= Date.today
-          .newsbox
-            %h2= date
-            = `haml #{file}`
-
-    = `haml footer.haml`
+      = `haml footer.haml`

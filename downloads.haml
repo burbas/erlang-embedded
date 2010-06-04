@@ -1,24 +1,26 @@
 !!! XML
 !!!
 
-%html
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      Embedded Erlang &mdash; Downloads
+    = `haml head.haml`
+  %body
+    #mainframe
+      = `haml header.haml`
+      = `haml menu.haml`
 
-  #mainframe
+      .content
+        :markdown
+          # Downloads
 
-    = `haml header.haml`
+          These are the releases available for download.
 
-    = `haml menu.haml`
+          * [Stag beetle](file:///tmp/erlang-embedded-core-stag-beetle.tar.gz)
 
-    .content
-      :markdown
-        # Downloads
+          The source code used to produce the above releases will be uploaded to
+          our  [github repository](http://github.com/esl/erlang-embedded) within
+          the following weeks.
 
-        These are the releases available for download.
-
-        * [Stag beetle](file:///tmp/erlang-embedded-core-stag-beetle.tar.gz)
-
-        The source code used to produce the above releases will be uploaded to
-        our  [github repository](http://github.com/esl/erlang-embedded) within
-        the following weeks.
-
-    = `haml footer.haml`
+      = `haml footer.haml`
