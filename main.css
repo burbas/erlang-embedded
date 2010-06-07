@@ -98,7 +98,7 @@ img.right {
 
 .content .rightbox .box {
     margin-top: 5px;
-    border: 1px solid #999999;
+    border: 1px solid #C2C2C2;
     background-color: #FFFFCC;
     padding: 10px;
     white-space: wrap;
@@ -106,7 +106,7 @@ img.right {
 }
 
 .content .leftbox .box {
-    background-color: #FFFF99;
+    background-color: #FFFFCC;
     padding: 10px;
     white-space: wrap;
     width: 400px;
