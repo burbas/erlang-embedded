@@ -105,8 +105,9 @@ img.right {
     width: 170px;
 }
 
-.content .leftbox .box {
-    background-color: #FFFFCC;
+.content .leftbox .box, .content .box {
+    background-color: #EEEEEE;
+    border: 1px solid #C2C2C2;
     padding: 10px;
     white-space: wrap;
     width: 400px;
