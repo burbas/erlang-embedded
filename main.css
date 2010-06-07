@@ -121,6 +121,13 @@ img.right {
     color: #404040;
 }
 
+code {
+    background-color: #EEEEEE;
+    border: 1px solid #C2C2C2;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
 #footer {
     width: 750px;
     float: left;

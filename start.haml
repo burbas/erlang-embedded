@@ -22,7 +22,8 @@
           1. Download the latest packaged release from the [downloads
           page](downloads.html) and extract it.
           1. Insert an SD card in your card reader.
-          1. Run `$INSTALLSCRIPT /dev/<cardreader>`.
+          1. cd into the directory you just extracted and run `./setup.sh /dev/sdb`.
+          (assuming sdb is your card reader.)
 
           ## Running:
           1. Insert the SD card in the Beagle Board or Gumstix (the device).
@@ -33,9 +34,6 @@
           logged in.
 
           # Suggested next steps:
-          * Install [`sshfs`](http://fuse.sourceforge.net/sshfs.html) so you
-          can mount the file system of the embedded device over `ssh` to easier
-          do the development on your PC.
           * Write the greatest Erlang application for an embedded system ever.
 
       = `haml footer.haml`
