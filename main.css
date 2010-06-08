@@ -163,6 +163,16 @@ code {
     width: 80%;
 }
 
+.mailinglist a {
+    text-decoration: none;
+}
+
+span.mailicon {
+    font-size: 16pt;
+    float: left;
+    margin: 5px;
+}
+
 #footer {
     width: 750px;
     float: left;
