@@ -68,7 +68,7 @@ a, a:visited, a:active {
 }
 
 .content {
-background-color: #FFFFFF;
+    background-color: #FFFFFF;
     width: 750px;
     margin-left: 25px;
     margin-right: 25px;
@@ -137,6 +137,30 @@ code {
     border: 1px solid #C2C2C2;
     padding-left: 4px;
     padding-right: 4px;
+}
+
+.releases {
+    font-family: mono;
+    border-collapse: collapse;
+}
+
+.releases tr th {
+    background: white;
+    text-align: left;
+}
+
+.releases tr {
+    border-top: 1px solid #C2C2C2;
+    background-color: #EEEEEE;
+}
+
+.releases td {
+    border-spacing: 0px;
+    padding: 2px;
+}
+
+.releases td.link {
+    width: 80%;
 }
 
 #footer {
