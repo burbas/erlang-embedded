@@ -43,12 +43,14 @@
         
         <li>Insert an SD card in your card reader.</li>
         
-        <li>cd into the directory you just extracted and run <code>./setup.sh /dev/sdb</code>.</li>
+        <li>cd into the directory you just extracted.</li>
+        
+        <li>Run <code>./setup.sh /dev/X</code> where X is the device of your SD card.</li>
         </ol>
         
-        <p>You probably need root privileges for running <code>setup.sh</code>.</p>
+        <p>You can find out what X is by running <code>dmesg | tail</code> after having inserted the card.</p>
         
-        <p>Substitute the path to your card reader for <code>/dev/sdb</code>.</p>
+        <p>You probably need root privileges for running <code>setup.sh</code>.</p>
         
         <h2 id='running'>Running:</h2>
         
@@ -59,7 +61,7 @@
         
         <li>Power your device on, either via USB or a power adapter.</li>
         
-        <li>You will get console output on the serial port and eventually be logged in.</li>
+        <li>Log in as root when the <code>login:</code> prompt shows, no password is needed.</li>
         </ol>
         
         <h1 id='suggested_next_steps'>Suggested next steps:</h1>
@@ -74,7 +76,7 @@
         </div>
         <div id='updated'>
           Last updated:
-          Mon Jun 07 12:06:41 UTC 2010
+          Tue Jun 08 09:03:31 UTC 2010
         </div>
       </div>
     </div>
