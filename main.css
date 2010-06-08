@@ -122,6 +122,10 @@ img.right {
     color: #404040;
 }
 
+.content h3 {
+    margin-top: 5px;
+}
+
 code {
     background-color: #EEEEEE;
     border: 1px solid #C2C2C2;
