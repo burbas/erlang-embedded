@@ -22,20 +22,20 @@
           1. Download the latest packaged release from the [downloads
           page](downloads.html) and extract it.
           1. Insert an SD card in your card reader.
-          1. cd into the directory you just extracted and run
-          `./setup.sh /dev/sdb`.
+          1. cd into the directory you just extracted.
+          1. Run `./setup.sh /dev/X` where X is the device of your SD card.
+
+          You can find out what X is by running `dmesg | tail` after 
+          having inserted the card.
 
           You probably need root privileges for running `setup.sh`.
-
-          Substitute the path to your card reader for `/dev/sdb`.
 
           ## Running:
           1. Insert the SD card in the Beagle Board or Gumstix (the device).
           1. Connect your PC to the serial port on your device and open it with
           your terminal program of choice.
           1. Power your device on, either via USB or a power adapter.
-          1. You will get console output on the serial port and eventually be
-          logged in.
+          1. Log in as root when the `login:` prompt shows, no password is needed.
 
           # Suggested next steps:
           * Write the greatest Erlang application for an embedded system ever.
