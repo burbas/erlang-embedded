@@ -18,8 +18,8 @@
           - file =~ /.*\/(.*).haml/
           - date = $1
           - if Date.parse(date) <= Date.today
+            %h2= date
             .newsbox
-              %h2= date
               = `haml #{file}`
 
       = `haml footer.haml`
