@@ -3,7 +3,7 @@
 <html xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <title>
-      Embedded Erlang &mdash; Downloads
+      Embedded Erlang &mdash; Features
     </title>
     <link href='main.css' rel='stylesheet' type='text/css' />
   </head>
@@ -28,23 +28,25 @@
         </ul>
       </div>
       <div class='content'>
-        <h1>Downloads</h1>
-        <p>These are the releases available for download. You will find the newest releases at the top.</p>
-        <table class='releases'>
-          <tr>
-            <th>Release name</th>
-            <th>Release date</th>
-          </tr>
-          <tr>
-            <td class='link'>
-              <a href='http://github.com/downloads/esl/erlang-embedded/erlang-embedded-stag-beetle.tar.bz2'>
-                erlang-embedded-stag-beetle
-              </a>
-            </td>
-            <td class='date'>2010-06-09</td>
-          </tr>
-        </table>
-        <p>The source code used to produce the above releases will be uploaded to our <a href='http://github.com/esl/erlang-embedded'>github repository</a> within the following weeks.</p>
+        <h1 id='features'>Features</h1>
+        
+        <h2 id='operating_system'>Operating System</h2>
+        
+        <p>The operating system in Erlang-embedded is based on the <a href='http://www.angstrom-distribution.org'>Ångström</a> Linux distribution.</p>
+        
+        <h2 id='included_software'>Included software</h2>
+        
+        <ul>
+        <li>The <a href='http://www.olsr.org/'>olsr</a> adhoc wireless mesh routing daemon</li>
+        
+        <li><a href='http://www.erlang.org'>Erlang</a> R13B04</li>
+        </ul>
+        
+        <h2 id='erlang'>Erlang</h2>
+        
+        <p>The Erlang release that is included with the distribution is cross compiled for the ARM architecture version 7-A.</p>
+        
+        <p>The distribution contains the Erlang runtime system and the libraries stdlib and kernel. In order to leave more room for application data, the Erlang emulator has been built with size optimizations and the included Erlang libraries are compressed.</p>
       </div>
       <div id='footer'>
         <div class='copyright'>

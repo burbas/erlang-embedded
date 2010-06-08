@@ -1,0 +1,40 @@
+!!! XML
+!!!
+
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      Embedded Erlang &mdash; Features
+    = `haml head.haml`
+  %body
+    #mainframe
+      = `haml header.haml`
+      = `haml menu.haml`
+
+      .content
+        :markdown
+          # Features
+
+          ## Operating System
+
+          The operating system in Erlang-embedded is based on the
+          [Ångström](http://www.angstrom-distribution.org) Linux
+          distribution.
+
+          ## Included software
+
+          * The [olsr](http://www.olsr.org/) adhoc wireless mesh routing daemon
+          * [Erlang](http://www.erlang.org) R13B04
+
+          ## Erlang
+
+          The Erlang release that is included with the distribution is
+          cross compiled for the ARM architecture version 7-A.
+
+          The distribution contains the Erlang runtime system and the
+          libraries stdlib and kernel. In order to leave more room for
+          application data, the Erlang emulator has been built with
+          size optimizations and the included Erlang libraries are
+          compressed.
+
+      = `haml footer.haml`
