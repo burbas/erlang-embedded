@@ -25,6 +25,12 @@ a, a:visited, a:active {
     font-family: Verdana;
     font-size: 32px;
     margin-left: 25px;
+    margin-bottom: 4px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: black;
 }
 
 .menu {
