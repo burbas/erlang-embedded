@@ -167,10 +167,10 @@ code {
     text-decoration: none;
 }
 
-span.mailicon {
-    font-size: 16pt;
+.mailinglist img {
     float: left;
-    margin: 5px;
+    margin-right: 10px;
+    border: 0px;
 }
 
 #footer {
