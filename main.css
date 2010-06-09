@@ -102,6 +102,7 @@ img.right {
 .content .rightbox {
     float: right;
     width: 200px;
+    text-align: left;
 }
 
 .content .rightbox .box {
