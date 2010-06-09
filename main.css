@@ -149,7 +149,7 @@ code {
 }
 
 .releases {
-    font-family: mono;
+    margin-left: 10px;
     border-collapse: collapse;
 }
 
@@ -164,6 +164,7 @@ code {
 }
 
 .releases td {
+    font-family: Monaco, "Courier New", "Bitstream Vera Sans Mono", monospace;
     border-spacing: 0px;
     padding: 2px;
 }
