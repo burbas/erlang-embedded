@@ -12,9 +12,13 @@
       = `haml menu.haml`
 
       .content
-        %h1 Downloads
+        :markdown
+          # Downloads
 
-        %p These are the releases available for download. You will find the newest releases at the top.
+          These are the releases available for download. You will find
+          the newest releases at the top. The tarballs contain
+          pre-built packages, see the [getting started](start.html)
+          page for more information.
 
         %table.releases
 
@@ -23,10 +27,10 @@
             %th Release date
 
           %tr
-            %td.link
+            %td
               %a{:href=>"http://github.com/downloads/esl/erlang-embedded/erlang-embedded-stag-beetle.tar.bz2"}
                 erlang-embedded-stag-beetle.tar.bz2
-            %td.date 2010-06-09
+            %td 2010-06-09
 
         :markdown
           The source code used to produce the above releases will be uploaded to
