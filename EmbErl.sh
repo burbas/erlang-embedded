@@ -151,6 +151,8 @@ done
 show "Creating release"
 ./otp_build release
 
+echo $(pwd)
+
 pushd release/arm-angstrom-linux-gnueabi/
 
 show "Running Install script to setup paths and executables"
@@ -195,4 +197,5 @@ fi
 show "Creating tarball"
 tar czf ${WD}/${TAR_NAME}.tgz .
 
+popd
 popd
