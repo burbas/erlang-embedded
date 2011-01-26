@@ -1,1 +1,22 @@
-TODO create documentation
+Please not that this documentation is not complete, we are working on finishing it.
+
+Building Erlang
+
+Make sure to have a valid toolchain in your path, in the EmbErl.sh script there
+is a variable named host. The toolchain should have it's binaries named
+$(HOST)-command. Example for HOST = arm gcc should be arm-gcc and be available
+in your path.
+
+We have used the toolchain that is built by openembedded when building our things.
+
+./EmbErl.sh -<opts> 
+
+Available opts are:
+-s          Strip beam files and compile with the slim flag
+-c          Compile beams using the compress flag
+-C          Compress applications into zip's
+-o <arg>    Compile the virtual machine with the <arg> optimization flag
+-H <arg>    Compile the virtual machine for the host <arg>
+-h          Display help message 
+
+To change version that EmbErl.sh builds change the VERSION variable in the script.
