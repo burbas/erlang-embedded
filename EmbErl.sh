@@ -14,7 +14,7 @@ TARGET_ERL_ROOT=/opt/local/erlang
 TAR_NAME="EmbErl_"
 
 #standard configuration values
-STRIP_BIN=true
+STRIP_BIN=false
 STRIP_BEAM=false
 SLIM_COMPILE=false
 COMPRESS_COMPILE=false
@@ -32,6 +32,9 @@ do
             STRIP_BEAM=true
             SLIM_COMPILE=true
             TAR_NAME=${TAR_NAME}s
+            ;;
+        S ) #echo "Stipping binaries"
+            STRIP_BIN=false
             ;;
         c ) #echo "Compress compiling"
             COMPRESS_COMPILE=true
@@ -168,7 +171,7 @@ fi
 if [ $STRIP_BIN == true ]
 then
     show "Stripping erts binaries"
-    arm-angstrom-linux-gnueabi-strip erts-*/bin/*
+    ${HOST}-strip erts-*/bin/*
 fi
 
 show "Removing source code, documentation, and examples"

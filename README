@@ -13,6 +13,7 @@ We have used the toolchain that is built by openembedded when building our thing
 
 Available opts are:
 -s          Strip beam files and compile with the slim flag
+-S          Stip binaries with the strip-tool
 -c          Compile beams using the compress flag
 -C          Compress applications into zip's
 -o <arg>    Compile the virtual machine with the <arg> optimization flag
