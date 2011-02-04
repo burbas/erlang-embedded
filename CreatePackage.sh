@@ -11,6 +11,7 @@ TAR=tar #Use gnutar for mac
 TAR_EXTRACT_BZIP="xjf"
 TAR_EXTRACT_GZ="xzf"
 TAR_COMPRESS_BZIP="cfj"
+TARGET_ERL_ROOT=/opt/local/erlang/
 
 LIBC=$1
 
@@ -18,7 +19,7 @@ mkdir -p /tmp/EmbErl/opt/local/erlang
 
 ${TAR} ${TAR_EXTRACT_BZIP} ${LIBC}/deploy/${LIBC}/images/beagleboard/minimalist-image-beagleboard.tar.bz2 -C /tmp/EmbErl/
 
-${TAR} ${TAR_EXTRACT_GZ} erlang-${RELEASE}.tgz -C /tmp/EmbErl/opt/local/erlang/
+${TAR} ${TAR_EXTRACT_GZ} erlang-${RELEASE}.tgz -C /tmp/EmbErl/${TARGET_ERL_ROOT}
 
 pushd /tmp/EmbErl
 ${TAR} ${TAR_COMPRESS_BZIP} rootfs.tar.bz2 *
