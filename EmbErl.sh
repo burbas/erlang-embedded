@@ -34,7 +34,7 @@ do
             TAR_NAME=${TAR_NAME}s
             ;;
         S ) #echo "Stipping binaries"
-            STRIP_BIN=false
+            STRIP_BIN=true
             ;;
         c ) #echo "Compress compiling"
             COMPRESS_COMPILE=true
