@@ -34,7 +34,7 @@ do
             TAR_NAME=${TAR_NAME}s
             ;;
         S ) #echo "Stipping binaries"
-            STRIP_BIN=false
+            STRIP_BIN=true
             ;;
         c ) #echo "Compress compiling"
             COMPRESS_COMPILE=true
@@ -127,7 +127,7 @@ then
         NEW_COMPILE_OPTS="$NEW_COMPILE_OPTS \+compressed"
     fi
 
-    OTP_MK="make/arm-angstrom-linux-gnueabi/otp.mk"
+    OTP_MK="make/${HOST}/otp.mk"
     show "Patching $OTP_MK to edit erlc options"
     sed -i "s/ \+debug_info/$NEW_COMPILE_OPTS/" $OTP_MK
 fi
@@ -156,7 +156,7 @@ show "Creating release"
 
 echo $(pwd)
 
-pushd release/arm-angstrom-linux-gnueabi/
+pushd release/${HOST}/
 
 show "Running Install script to setup paths and executables"
 ./Install -cross -minimal $TARGET_ERL_ROOT
@@ -165,7 +165,7 @@ rm Install
 if [ $STRIP_BEAM == true ]
 then
     show "Stripping beam files"
-    erl -eval "beam_lib:strip_release('${WD}/otp_src_R13B04/release/arm-angstrom-linux-gnueabi')" -s init stop
+    erl -eval "beam_lib:strip_release('${WD}/otp_src_R13B04/release/${HOST}')" -s init stop
 fi
 
 if [ $STRIP_BIN == true ]
