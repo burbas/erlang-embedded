@@ -9,15 +9,16 @@ in your path.
 
 We have used the toolchain that is built by openembedded when building our things.
 
-./EmbErl.sh -<opts> 
+`./EmbErl.sh -<opts>`
 
-Available opts are:
+`Available opts are:
 -s          Strip beam files and compile with the slim flag
 -S          Stip binaries with the strip-tool
 -c          Compile beams using the compress flag
 -C          Compress applications into zip's
 -o <arg>    Compile the virtual machine with the <arg> optimization flag
 -H <arg>    Compile the virtual machine for the host <arg>
--h          Display help message 
+-h          Display help message`
 
-To change version that EmbErl.sh builds change the VERSION variable in the script.
+
+To use another erlang version than the one that  EmbErl.sh uses as default, change the VERSION variable (eg `VERSION=R14B01 ./EmbErl.sh <arguments>` ). One can also set the variable `TARGET_ERL_ROOT=path` to change the location in which erlang will be installed.
