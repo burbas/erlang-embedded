@@ -15,11 +15,32 @@ TARGET_ERL_ROOT=/opt/local/erlang/
 
 LIBC=$1
 
+generate_welcome_screen()
+{
+    cat <<EOF
+ _____       _         _   _       _     _____     _
+|   __|_____| |_ ___ _| |_| |___ _| |___|   __|___| |___ ___ ___
+|   __|     | . | -_| . | . | -_| . |___|   __|  _| | .'|   | . |
+|_____|_|_|_|___|___|___|___|___|___|   |_____|_| |_|__,|_|_|_  |
+                                                            |___|
+ _____
+|     |___ ___ ___
+|   --| . |  _| -_|
+|_____|___|_| |___|
+
+The Embedded Erlang Distribution
+
+${RELEASE} \n \l
+EOF
+}
+
 mkdir -p /tmp/EmbErl/opt/local/erlang
 
 ${TAR} ${TAR_EXTRACT_BZIP} ${LIBC}/deploy/${LIBC}/images/beagleboard/minimalist-image-beagleboard.tar.bz2 -C /tmp/EmbErl/
 
 ${TAR} ${TAR_EXTRACT_GZ} erlang-${RELEASE}.tgz -C /tmp/EmbErl/${TARGET_ERL_ROOT}
+
+generate_welcome_screen > /tmp/EmbErl/etc/issue
 
 pushd /tmp/EmbErl
 ${TAR} ${TAR_COMPRESS_BZIP} rootfs.tar.bz2 *
