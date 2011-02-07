@@ -2,7 +2,7 @@
 
 PROJECT=EmbErl
 
-VERSION=R13B04
+VERSION=R14B01
 OTP_SRC=otp_src_$VERSION
 OTP_SRC_TAR=${OTP_SRC}.tar.gz
 
@@ -18,11 +18,11 @@ STRIP_BIN=false
 STRIP_BEAM=false
 SLIM_COMPILE=false
 COMPRESS_COMPILE=false
-COMPRESS_APP=false
+COMPRESS_APP=true
 
 #standard gcc opt levels [1,2,3,s]
-OPT_LEVEL=2
-HOST=arm-angstrom-linux-gnueabi
+OPT_LEVEL=s
+HOST=arm-angstrom-linux-uclibceabi
 
 #Arguments parsing
 while getopts ":scCoH:h" Option
