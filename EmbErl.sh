@@ -1,15 +1,57 @@
 #!/bin/bash
 
+unset CPATH
+unset C_INCLUDE_PATH
+unset CPLUS_INCLUDE_PATH
+unset OBJC_INCLUDE_PATH
+unset LIBS
+unset DYLD_FALLBACK_LIBRARY_PATH
+unset DYLD_FALLBACK_FRAMEWORK_PATH
+
+export SDKVER="4.2"
+export DEVROOT="/Developer/Platforms/iPhoneOS.platform/Developer"
+export SDKROOT="$DEVROOT/SDKs/iPhoneOS$SDKVER.sdk"
+
+if [ ! \( -d "$DEVROOT" \) ] ; then
+   echo "The iPhone SDK could not be found. Folder \"$DEVROOT\" does not exist."
+   exit 1
+fi
+
+if [ ! \( -d "$SDKROOT" \) ] ; then
+   echo "The iPhone SDK could not be found. Folder \"$SDKROOT\" does not exist."
+   exit 1
+fi
+
+export PKG_CONFIG_PATH="$SDKROOT/usr/lib/pkgconfig":"/opt/iphone-$SDKVER/lib/pkgconfig":"/usr/local/iphone-$SDKVER/lib/pkgconfig"
+export PKG_CONFIG_LIBDIR="$PKG_CONFIG_PATH"
+export PREFIX="/opt/iphone-$SDKVER"
+export AS="$DEVROOT/usr/bin/as"
+export ASCPP="$DEVROOT/usr/bin/as"
+export AR="$DEVROOT/usr/bin/ar"
+export RANLIB="$DEVROOT/usr/bin/ranlib"
+export CPPFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp -I$SDKROOT/usr/include -I/opt/iphone-$SDKVER/include -I/usr/local/iphone-$SDKVER/include"
+export CFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='$SDKROOT' -isystem $SDKROOT/usr/include -isystem /opt/iphone-$SDKVER/include -isystem /usr/local/iphone-$SDKVER/include"
+export CXXFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='$SDKROOT' -isystem $SDKROOT/usr/include -isystem /opt/iphone-$SDKVER/include -isystem /usr/local/iphone-$SDKVER/include"
+export LDFLAGS="-miphoneos-version-min=4.1 -I$SDKROOT/usr/include -I/opt/iphone-$SDKVER/include -I/usr/local/iphone-$SDKVER/include -L$SDKROOT/usr/lib -L/opt/iphone-$SDKVER/lib -L/usr/local/iphone-$SDKVER/lib"
+export CPP="$DEVROOT/usr/bin/cpp -E"
+export CXXCPP="$DEVROOT/usr/bin/cpp"
+export CC="$DEVROOT/usr/bin/arm-apple-darwin10-gcc-4.2.1"
+export CXX="$DEVROOT/usr/bin/arm-apple-darwin10-g++-4.2.1"
+export LD="$DEVROOT/usr/bin/ld"
+export STRIP="$DEVROOT/usr/bin/strip"
+
+################################################################################
+
 PROJECT=EmbErl
 
 VERSION=R14B01
 OTP_SRC=otp_src_$VERSION
 OTP_SRC_TAR=${OTP_SRC}.tar.gz
 
-XCOMP_CONF=erl-xcomp-arm-linux.conf
+XCOMP_CONF=erl-xcomp-arm-darwin.conf
 XCOMP_CONF_PATH=xcomp/$XCOMP_CONF
 
-TARGET_ERL_ROOT=/opt/local/erlang
+TARGET_ERL_ROOT=/usr/local/erlang
 
 TAR_NAME="EmbErl_"
 
@@ -22,7 +64,7 @@ COMPRESS_APP=true
 
 #standard gcc opt levels [1,2,3,s]
 OPT_LEVEL=s
-HOST=arm-angstrom-linux-uclibceabi
+HOST=arm-apple-darwin10
 
 #Arguments parsing
 while getopts ":scCoH:h" Option
@@ -156,7 +198,7 @@ show "Creating release"
 
 echo $(pwd)
 
-pushd release/${HOST}/
+pushd release/${HOST}/ 2> /dev/null || (show "Building release failed!" ; exit 1)
 
 show "Running Install script to setup paths and executables"
 ./Install -cross -minimal $TARGET_ERL_ROOT
@@ -165,7 +207,7 @@ rm Install
 if [ $STRIP_BEAM == true ]
 then
     show "Stripping beam files"
-    erl -eval "beam_lib:strip_release('${WD}/otp_src_R13B04/release/${HOST}')" -s init stop
+    erl -eval "beam_lib:strip_release('${WD}/otp_src_R14B01/release/${HOST}')" -s init stop
 fi
 
 if [ $STRIP_BIN == true ]
