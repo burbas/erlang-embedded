@@ -165,7 +165,7 @@ rm Install
 if [ $STRIP_BEAM == true ]
 then
     show "Stripping beam files"
-    erl -eval "beam_lib:strip_release('${WD}/otp_src_R13B04/release/${HOST}')" -s init stop
+    erl -eval "beam_lib:strip_release('${WD}/otp_src_${VERSION}/release/${HOST}')" -s init stop
 fi
 
 if [ $STRIP_BIN == true ]
