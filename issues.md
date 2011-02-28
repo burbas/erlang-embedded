@@ -54,9 +54,14 @@ Apply patch to not create the `-m32` flag in configure files. (See
 patch file).
 
 
-## bp_sched2ix Not defined
+## bp_sched2ix function not defined
 
 ### Problem
+A function was introduced in commit ff9531eb5e6aaa5a4802db0db5e0e850f4233702
+(https://github.com/erlang/otp/commit/ff9531eb5e6aaa5a4802db0db5e0e850f4233702). This
+function creates problems only so far when linking for an
+arm-apple-darwin platform. 
+
 Issues while compiling:
  * erl_init.o
  * erl_bif_trace.o
@@ -84,8 +89,36 @@ This leads to:
       make[1]: *** [opt] Error 2
       make: *** [emulator] Error 2
 
-Might be, that SMP is partly believed to be activated and implemented,
-but actually isn't. 
+The implementation looks like that:
+
+    erts/emulator/beam/beam_bp.h:
+    ERTS_INLINE Uint bp_sched2ix(void);
+
+    erts/emulator/beam/beam_bp.c:
+    /* bp_hash */
+    ERTS_INLINE Uint bp_sched2ix() {
+    #ifdef ERTS_SMP
+        ErtsSchedulerData *esdp;
+        esdp = erts_get_scheduler_data();
+        return esdp->no - 1;
+    #else
+        return 0;
+    #endif
+    }
 
 ### Solution
-Try to really unset using SMP
+Remove the `-std=c99` flag from the CFLAG flag.
+
+
+## Missing utmp.h file in run_erl.c issues
+
+### Problem
+    ../unix/run_erl.c:70:20: error: utmp.h: No such file or directory
+
+This file is needed because of the `time_t` struct. This file in fact
+exists on the OS X system SDK and the iPhone simulator SDK, but not in
+the iPhone SDK. There, the missing struct exists in the `utime.h` file.
+
+## Solution
+Patch the run_erl.c file to use `utime.h` instead of `utmp.h`. (Or
+copy the `utmp.h` file into the iPhone SDK).

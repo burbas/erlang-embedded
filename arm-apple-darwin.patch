@@ -216,3 +216,14 @@
    else
      CFLAGS32="$CFLAGS"
    fi
+--- a/otp_src_R14B01/erts/etc/unix/run_erl.c	2011-02-28 16:41:34.000000000 +0100
++++ b/otp_src_R14B01/erts/etc/unix/run_erl.c	2011-02-28 16:41:20.000000000 +0100
+@@ -67,7 +67,7 @@
+ #  include <pty.h>
+ #endif
+ #ifdef HAVE_UTMP_H
+-#  include <utmp.h>
++#  include <utime.h>
+ #endif
+ #ifdef HAVE_UTIL_H
+ #  include <util.h>

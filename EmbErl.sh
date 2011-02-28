@@ -110,15 +110,15 @@ fi
 cp $XCOMP_CONF ${OTP_SRC}/$XCOMP_CONF_PATH
 
 
-show "Patching config scripts to not use the '-m32' flag for arm-apple-darwin gcc compiler"
-patch -N -p1 < arm-apple-darwin_configure.patch
+show "Patching some files for arm-apple-darwin gcc compiler and iOS SDK compatibility"
+patch -N -p1 < arm-apple-darwin.patch
 
 
 #Enter the Build directory and do configure
 #TODO: remove any SKIP files that were created previously
 show "Configuring for cross compilation using $XCOMP_CONF_PATH"
 pushd $OTP_SRC
-./otp_build configure --xcomp-conf=$XCOMP_CONF_PATH --enable-m32-build
+./otp_build configure --xcomp-conf=$XCOMP_CONF_PATH
 
 if [[ "$SLIM_COMPILE" == "true" || "$COMPRESS_COMPILE" == "true" ]]
 then
@@ -158,8 +158,6 @@ for KEEP in $KEEPSIES; do
   show "Removing prebuilt files in $KEEP"
   rm lib/$KEEP/ebin/*.beam
 done
-
-echo "@@@@@@@@@@@@@@@@ Chill! /Uwe" ; exit 666
 
 show "Creating release"
 ./otp_build release

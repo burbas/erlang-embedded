@@ -78,7 +78,8 @@ CC="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/arm-apple-darwin10-
 
 # * `CFLAGS' - C compiler flags.
 #CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY"
-CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY -miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk' -isystem /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
+#CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY -miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk' -isystem /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
+CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY --sysroot='/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk' -isystem /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
 
 # * `STATIC_CFLAGS' - Static C compiler flags.
 #STATIC_CFLAGS=
@@ -95,7 +96,8 @@ CPP="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/arm-apple-darwin10
 
 # * `CPPFLAGS' - C pre-processor flags.
 #CPPFLAGS=
-CPPFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
+#CPPFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
+CPPFLAGS="-I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
 
 # * `CXX' - C++ compiler.
 #CXX=
@@ -104,7 +106,8 @@ CXX="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/arm-apple-darwin10
 
 # * `CXXFLAGS' - C++ compiler flags.
 #CXXFLAGS=
-CXXFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk' -isystem /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
+#CXXFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk' -isystem /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
+CXXFLAGS="--sysroot='/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk' -isystem /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
 
 # * `LD' - Linker.
 #LD=
@@ -112,7 +115,8 @@ LD="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/ld"
 
 # * `LDFLAGS' - Linker flags.
 #LDFLAGS=
-LDFLAGS="-miphoneos-version-min=4.1 -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include -L/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/lib"
+#LDFLAGS="-miphoneos-version-min=4.1 -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include -L/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/lib"
+LDFLAGS="-I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include -L/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/lib"
 
 # * `LIBS' - Libraries.
 #LIBS=
