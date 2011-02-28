@@ -73,9 +73,12 @@ erl_xcomp_configure_flags="--disable-hipe --disable-threads --disable-smp \
 
 # * `CC' - C compiler.
 #CC=gcc
+CC="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/arm-apple-darwin10-gcc-4.2.1"
+#CC="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/arm-apple-darwin10-llvm-gcc-4.2"
 
 # * `CFLAGS' - C compiler flags.
-CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY"
+#CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY"
+CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY -miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk' -isystem /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
 
 # * `STATIC_CFLAGS' - Static C compiler flags.
 #STATIC_CFLAGS=
@@ -87,21 +90,29 @@ CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY"
 
 # * `CPP' - C pre-processor.
 #CPP=/tmp/gnuarm-4.0.2/bin/arm-elf-cpp
+CPP="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/arm-apple-darwin10-cpp-4.2.1"
+#CPP="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/cpp -E"
 
 # * `CPPFLAGS' - C pre-processor flags.
 #CPPFLAGS=
+CPPFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
 
 # * `CXX' - C++ compiler.
 #CXX=
+#CXX="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/arm-apple-darwin10-g++-4.2.1"
+CXX="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/arm-apple-darwin10-llvm-g++-4.2"
 
 # * `CXXFLAGS' - C++ compiler flags.
 #CXXFLAGS=
+CXXFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk' -isystem /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include"
 
 # * `LD' - Linker.
 #LD=
+LD="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/ld"
 
 # * `LDFLAGS' - Linker flags.
 #LDFLAGS=
+LDFLAGS="-miphoneos-version-min=4.1 -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include -L/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/lib"
 
 # * `LIBS' - Libraries.
 #LIBS=
@@ -137,9 +148,11 @@ CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY"
 
 # * `RANLIB' - `ranlib' archive index tool.
 #RANLIB=
+RANLIB="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/ranlib"
 
 # * `AR' - `ar' archiving tool.
 #AR=
+AR="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/ar"
 
 # * `GETCONF' - `getconf' system configuration inspection tool. `getconf' is
 #   currently used for finding out large file support flags to use, and
@@ -187,7 +200,7 @@ CFLAGS="-O@OPT_LEVEL@ -DSMALL_MEMORY"
 #   automatically detected, but not always. If not automatically detected,
 #   `configure' will fail unless this variable is set. Since no default
 #   value is used, `configure' will try to figure this out automatically.
-#erl_xcomp_bigendian=
+erl_xcomp_bigendian=no
 
 # * `erl_xcomp_clock_gettime_cpu_time' - `yes|no'. Defaults to `no'. If `yes',
 #   the target system must have a working `clock_gettime()' implementation

@@ -1,0 +1,218 @@
+--- a/otp_src_R14B01/configure.in	2010-12-07 16:07:22.000000000 +0100
++++ b/otp_src_R14B01/configure.in	2011-02-28 11:55:31.000000000 +0100
+@@ -344,9 +344,9 @@
+ 	LDFLAGS="-m64 $LDFLAGS"
+ 	export LDFLAGS
+ elif test X"$TMPSYS" '=' X"Darwin-i386"; then
+-	CFLAGS="-m32 $CFLAGS"
++	CFLAGS="$CFLAGS"
+ 	export CFLAGS
+-	LDFLAGS="-m32 $LDFLAGS"
++	LDFLAGS="$LDFLAGS"
+ 	export LDFLAGS
+ fi
+ 
+@@ -359,9 +359,9 @@
+ fi
+ if test X${enable_m32_build} = Xyes; then
+ 	enable_hipe=no
+-	CFLAGS="-m32 $CFLAGS"
++	CFLAGS="$CFLAGS"
+ 	export CFLAGS
+-	LDFLAGS="-m32 $LDFLAGS"
++	LDFLAGS="$LDFLAGS"
+ 	export LDFLAGS
+ fi
+ 
+--- a/otp_src_R14B01/configure	2010-12-07 16:07:22.000000000 +0100
++++ b/otp_src_R14B01/configure	2011-02-28 12:11:11.000000000 +0100
+@@ -3514,9 +3514,9 @@
+ 	LDFLAGS="-m64 $LDFLAGS"
+ 	export LDFLAGS
+ elif test X"$TMPSYS" '=' X"Darwin-i386"; then
+-	CFLAGS="-m32 $CFLAGS"
++	CFLAGS="$CFLAGS"
+ 	export CFLAGS
+-	LDFLAGS="-m32 $LDFLAGS"
++	LDFLAGS="$LDFLAGS"
+ 	export LDFLAGS
+ fi
+ 
+@@ -3529,9 +3531,9 @@
+ fi
+ if test X${enable_m32_build} = Xyes; then
+ 	enable_hipe=no
+-	CFLAGS="-m32 $CFLAGS"
++	CFLAGS="$CFLAGS"
+ 	export CFLAGS
+-	LDFLAGS="-m32 $LDFLAGS"
++	LDFLAGS="$LDFLAGS"
+ 	export LDFLAGS
+ fi
+ 
+--- a/otp_src_R14B01/erts/configure.in	2010-12-07 16:07:22.000000000 +0100
++++ b/otp_src_R14B01/erts/configure.in	2011-02-28 11:57:15.000000000 +0100
+@@ -351,7 +351,7 @@
+ 			*-m32*)
+ 				;;
+ 			*)
+-				CFLAGS="-m32 $CFLAGS"
++				CFLAGS="$CFLAGS"
+ 				;;
+ 			esac
+ 			;;
+@@ -363,7 +363,7 @@
+ 				*-m32*)
+ 					;;
+ 				*)
+-					CFLAGS="-m32 $CFLAGS"
++					CFLAGS="$CFLAGS"
+ 				;;
+ 				esac ;
+ 			fi
+@@ -483,7 +483,7 @@
+ 			*-m32*)
+ 				;;
+ 			*)
+-				DEBUG_CFLAGS="-m32 $DEBUG_CFLAGS"
++				DEBUG_CFLAGS="$DEBUG_CFLAGS"
+ 				;;
+ 		esac
+ 		;;
+@@ -710,7 +710,7 @@
+ 				*-m32*)
+ 					;;
+ 				*)
+-					LDFLAGS="-m32 $LDFLAGS"
++					LDFLAGS="$LDFLAGS"
+ 					;;
+ 			esac
+ 		fi
+@@ -732,7 +732,7 @@
+ 				*-m32*)
+ 					;;
+ 				*)
+-					LDFLAGS="-m32 $LDFLAGS"
++					LDFLAGS="$LDFLAGS"
+ 				;;
+ 			esac ;
+ 		fi
+@@ -3415,7 +3415,7 @@
+ 				;;
+ 			*)
+ 				if test X${enable_darwin_universal} != Xyes; then
+-					DED_LDFLAGS="-m32 $DED_LDFLAGS"
++					DED_LDFLAGS="$DED_LDFLAGS"
+ 				fi
+ 				;;
+ 		esac
+@@ -3433,7 +3433,7 @@
+ 			DED_LDFLAGS="-m64 $DED_LDFLAGS"
+ 		fi;
+ 		if test X${enable_m32_build} = Xyes; then
+-			DED_LDFLAGS="-m32 $DED_LDFLAGS"
++			DED_LDFLAGS="$DED_LDFLAGS"
+ 		fi
+ 	;;	
+ 	freebsd*)
+@@ -3444,7 +3444,7 @@
+ 			DED_LDFLAGS="-m64 $DED_LDFLAGS"
+ 		fi;
+ 		if test X${enable_m32_build} = Xyes; then
+-			DED_LDFLAGS="-m32 $DED_LDFLAGS"
++			DED_LDFLAGS="$DED_LDFLAGS"
+ 		fi
+ 	;;	
+ 	osf*)
+@@ -4153,7 +4153,7 @@
+ if test -z "$CFLAGS32"; then
+   if test $ac_cv_sizeof_void_p != 4; then
+     # We are compiling default 64 bits and use -m32 for 32 bit compilations
+-    CFLAGS32="$CFLAGS -m32"
++    CFLAGS32="$CFLAGS"
+   else
+     CFLAGS32="$CFLAGS"
+   fi
+--- a/otp_src_R14B01/erts/configure	2010-12-07 16:07:22.000000000 +0100
++++ b/otp_src_R14B01/erts/configure	2011-02-28 12:05:47.000000000 +0100
+@@ -3127,7 +3127,7 @@
+ 			*-m32*)
+ 				;;
+ 			*)
+-				CFLAGS="-m32 $CFLAGS"
++				CFLAGS="$CFLAGS"
+ 				;;
+ 			esac
+ 			;;
+@@ -3139,7 +3140,7 @@
+ 				*-m32*)
+ 					;;
+ 				*)
+-					CFLAGS="-m32 $CFLAGS"
++					CFLAGS="$CFLAGS"
+ 				;;
+ 				esac ;
+ 			fi
+@@ -3988,7 +3990,7 @@
+ 			*-m32*)
+ 				;;
+ 			*)
+-				DEBUG_CFLAGS="-m32 $DEBUG_CFLAGS"
++				DEBUG_CFLAGS="$DEBUG_CFLAGS"
+ 				;;
+ 		esac
+ 		;;
+@@ -5333,7 +5336,7 @@
+ 				*-m32*)
+ 					;;
+ 				*)
+-					LDFLAGS="-m32 $LDFLAGS"
++					LDFLAGS="$LDFLAGS"
+ 					;;
+ 			esac
+ 		fi
+@@ -5357,7 +5361,7 @@
+ 				*-m32*)
+ 					;;
+ 				*)
+-					LDFLAGS="-m32 $LDFLAGS"
++					LDFLAGS="$LDFLAGS"
+ 				;;
+ 			esac ;
+ 		fi
+@@ -25696,7 +25701,7 @@
+ 				;;
+ 			*)
+ 				if test X${enable_darwin_universal} != Xyes; then
+-					DED_LDFLAGS="-m32 $DED_LDFLAGS"
++					DED_LDFLAGS="$DED_LDFLAGS"
+ 				fi
+ 				;;
+ 		esac
+@@ -25714,7 +25720,7 @@
+ 			DED_LDFLAGS="-m64 $DED_LDFLAGS"
+ 		fi;
+ 		if test X${enable_m32_build} = Xyes; then
+-			DED_LDFLAGS="-m32 $DED_LDFLAGS"
++			DED_LDFLAGS="$DED_LDFLAGS"
+ 		fi
+ 	;;
+ 	freebsd*)
+@@ -25725,7 +25732,7 @@
+ 			DED_LDFLAGS="-m64 $DED_LDFLAGS"
+ 		fi;
+ 		if test X${enable_m32_build} = Xyes; then
+-			DED_LDFLAGS="-m32 $DED_LDFLAGS"
++			DED_LDFLAGS="$DED_LDFLAGS"
+ 		fi
+ 	;;
+ 	osf*)
+@@ -27102,7 +27110,7 @@
+ if test -z "$CFLAGS32"; then
+   if test $ac_cv_sizeof_void_p != 4; then
+     # We are compiling default 64 bits and use -m32 for 32 bit compilations
+-    CFLAGS32="$CFLAGS -m32"
++    CFLAGS32="$CFLAGS"
+   else
+     CFLAGS32="$CFLAGS"
+   fi

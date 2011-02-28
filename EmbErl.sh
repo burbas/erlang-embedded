@@ -1,47 +1,5 @@
 #!/bin/bash
 
-unset CPATH
-unset C_INCLUDE_PATH
-unset CPLUS_INCLUDE_PATH
-unset OBJC_INCLUDE_PATH
-unset LIBS
-unset DYLD_FALLBACK_LIBRARY_PATH
-unset DYLD_FALLBACK_FRAMEWORK_PATH
-
-export SDKVER="4.2"
-export DEVROOT="/Developer/Platforms/iPhoneOS.platform/Developer"
-export SDKROOT="$DEVROOT/SDKs/iPhoneOS$SDKVER.sdk"
-
-if [ ! \( -d "$DEVROOT" \) ] ; then
-   echo "The iPhone SDK could not be found. Folder \"$DEVROOT\" does not exist."
-   exit 1
-fi
-
-if [ ! \( -d "$SDKROOT" \) ] ; then
-   echo "The iPhone SDK could not be found. Folder \"$SDKROOT\" does not exist."
-   exit 1
-fi
-
-export PKG_CONFIG_PATH="$SDKROOT/usr/lib/pkgconfig":"/opt/iphone-$SDKVER/lib/pkgconfig":"/usr/local/iphone-$SDKVER/lib/pkgconfig"
-export PKG_CONFIG_LIBDIR="$PKG_CONFIG_PATH"
-export PREFIX="/opt/iphone-$SDKVER"
-export AS="$DEVROOT/usr/bin/as"
-export ASCPP="$DEVROOT/usr/bin/as"
-export AR="$DEVROOT/usr/bin/ar"
-export RANLIB="$DEVROOT/usr/bin/ranlib"
-export CPPFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp -I$SDKROOT/usr/include -I/opt/iphone-$SDKVER/include -I/usr/local/iphone-$SDKVER/include"
-export CFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='$SDKROOT' -isystem $SDKROOT/usr/include -isystem /opt/iphone-$SDKVER/include -isystem /usr/local/iphone-$SDKVER/include"
-export CXXFLAGS="-miphoneos-version-min=4.1 -std=c99 -pipe -no-cpp-precomp --sysroot='$SDKROOT' -isystem $SDKROOT/usr/include -isystem /opt/iphone-$SDKVER/include -isystem /usr/local/iphone-$SDKVER/include"
-export LDFLAGS="-miphoneos-version-min=4.1 -I$SDKROOT/usr/include -I/opt/iphone-$SDKVER/include -I/usr/local/iphone-$SDKVER/include -L$SDKROOT/usr/lib -L/opt/iphone-$SDKVER/lib -L/usr/local/iphone-$SDKVER/lib"
-export CPP="$DEVROOT/usr/bin/cpp -E"
-export CXXCPP="$DEVROOT/usr/bin/cpp"
-export CC="$DEVROOT/usr/bin/arm-apple-darwin10-gcc-4.2.1"
-export CXX="$DEVROOT/usr/bin/arm-apple-darwin10-g++-4.2.1"
-export LD="$DEVROOT/usr/bin/ld"
-export STRIP="$DEVROOT/usr/bin/strip"
-
-################################################################################
-
 PROJECT=EmbErl
 
 VERSION=R14B01
@@ -65,6 +23,9 @@ COMPRESS_APP=true
 #standard gcc opt levels [1,2,3,s]
 OPT_LEVEL=s
 HOST=arm-apple-darwin10
+
+#STRIP_CMD=${HOST}-strip
+STRIP_CMD="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/strip"
 
 #Arguments parsing
 while getopts ":scCoH:h" Option
@@ -149,11 +110,15 @@ fi
 cp $XCOMP_CONF ${OTP_SRC}/$XCOMP_CONF_PATH
 
 
+show "Patching config scripts to not use the '-m32' flag for arm-apple-darwin gcc compiler"
+patch -N -p1 < arm-apple-darwin_configure.patch
+
+
 #Enter the Build directory and do configure
 #TODO: remove any SKIP files that were created previously
 show "Configuring for cross compilation using $XCOMP_CONF_PATH"
 pushd $OTP_SRC
-./otp_build configure --xcomp-conf=$XCOMP_CONF_PATH
+./otp_build configure --xcomp-conf=$XCOMP_CONF_PATH --enable-m32-build
 
 if [[ "$SLIM_COMPILE" == "true" || "$COMPRESS_COMPILE" == "true" ]]
 then
@@ -178,11 +143,12 @@ fi
 show "Selecting applications to keep"
 KEEPSIES=$(tr '\n' ' ' < ../keep)
 for APP in $(ls lib); do
+  [ -d lib/$APP ] &&
   echo "Not listed in keep file" >> lib/$APP/SKIP
 done
 for KEEP in $KEEPSIES; do
   show "Keeping $KEEP"
-  rm lib/$KEEP/SKIP
+  rm -f lib/$KEEP/SKIP
 done
 
 show "Creating bootstrap and building"
@@ -192,6 +158,8 @@ for KEEP in $KEEPSIES; do
   show "Removing prebuilt files in $KEEP"
   rm lib/$KEEP/ebin/*.beam
 done
+
+echo "@@@@@@@@@@@@@@@@ Chill! /Uwe" ; exit 666
 
 show "Creating release"
 ./otp_build release
@@ -213,7 +181,7 @@ fi
 if [ $STRIP_BIN == true ]
 then
     show "Stripping erts binaries"
-    ${HOST}-strip erts-*/bin/*
+    $STRIP_CMD erts-*/bin/*
 fi
 
 show "Removing source code, documentation, and examples"
@@ -244,3 +212,7 @@ tar czf ${WD}/${TAR_NAME}.tgz .
 
 popd
 popd
+
+## Test the resulted binaries for TARGET compatability
+file ./otp_src_R14B01/bin/i386-apple-darwin10.6.0/erlexec
+file ./otp_src_R14B01/bin/arm-apple-darwin10.6.0/erlexec
