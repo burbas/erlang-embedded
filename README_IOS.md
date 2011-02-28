@@ -1,3 +1,8 @@
+# Compile info
+
+The smallest package is obtain by using `./EmbErl.sh -s -c` (~2.0mb).
+
+
 # Progress
 
 * + Autoconfigure works
