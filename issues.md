@@ -5,14 +5,27 @@
 * + Host compilation works
 * + Host linking works
 * + Target compilation works
-* - Target linking fails
-* ? Bundling
-* ? Execution
-
+* + Target linking fails
+* + Bundling
+* + Execution
 
 
 # Todos
 
+Add following libraries:
+
+ * compiler (done! Compiler works! now we can compile on the AppleTV)
+ * sasl
+ * crypto
+ * ssl
+ * public_key
+ * mnesia
+ * inets
+ * tools
+
+Test some system parameters:
+
+ * Run `> erlang:system_info(X).` to see the configuration
 
 
 # Hurdles

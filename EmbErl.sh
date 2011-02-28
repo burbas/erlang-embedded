@@ -212,5 +212,4 @@ popd
 popd
 
 ## Test the resulted binaries for TARGET compatability
-file ./otp_src_R14B01/bin/i386-apple-darwin10.6.0/erlexec
-file ./otp_src_R14B01/bin/arm-apple-darwin10/erlexec
+file ./otp_src_R14B01/bin/${HOST}/erlexec
